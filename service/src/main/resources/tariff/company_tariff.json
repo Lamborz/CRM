@@ -1,0 +1,25 @@
+{
+  "companies":[
+  { "name":"lions moving",
+        "standard" : {
+              "twoMovers":"75",
+              "treeMovers":"105",
+              "fourMovers":"135",
+              "fourMovers":"135",
+              "cashPay":"0",
+              "otherPay":"30",
+              "shrinkWrap":"39,99",
+              "tape":"4,99",
+              "serviceCharge":"30"},
+
+        "allInclusive" : {
+              "oneMover":"90",
+              "extraMover":"15",
+              "cashPay":"0",
+              "otherPay":"30",
+              "shrinkWrap":"39,99",
+              "tape":"4,99",
+              "serviceCharge":"30"}
+    }
+  ]
+}

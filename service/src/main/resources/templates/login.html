@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Royal CRM</title>
+
+    <!-- Latest compiled and minified CSS -->
+
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"-->
+    <!--integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"/>-->
+    <link rel="stylesheet" href="css\bootstrap.min.css"/>
+    <link rel="stylesheet" href="css\signin.css"/>
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
+          integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous"/>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+
+    <![endif]-->
+    <link href="http://getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet"/>
+
+
+</head>
+<body>
+
+
+<div class="container">
+
+
+
+
+    <!--<a  class="navbar-brand" href="#">-->
+        <!--<img alt="Brand" src="/images/logo.png"/>-->
+    <!--</a>-->
+
+
+
+    <form class="form-signin" action="/login" th:object="${loginForm}" th:action="@{/login}" method="post">
+
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" th:field="*{login}"  required="" autofocus=""/>
+        <label for="inputPassword" th:field="*{password}" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required=""/>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="remember-me"/> Remember me
+            </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+
+        <!--<input type="text"  placeholder="Login" th:field="*{login}" class="active textbox" value="Login" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Login';}"/>-->
+        <!--<input type="text" placeholder="Password" th:field="*{password}" class="textbox" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}"/>-->
+        <!--&lt;!&ndash;<input type="text"  placeholder="Email" th:field="*{loginForm.mail}" class="textbox" value="Email Address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email Address';}"/>&ndash;&gt;-->
+        <!--<input type="submit" value="Enter"/>-->
+    </form>
+
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="js\jfcore.js"></script>
+<!--<script type="text/javascript" src="js\order.js"></script>-->
+
+</body>
+</html>
