@@ -10,6 +10,6 @@ import java.util.List;
  */
 public interface VehicleService {
 
-    List<Vehicle> getAllAvailableTransport();
+    List<Vehicle> getAvailableTransport();
 
     }
