@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * Контроллер для обработки данных payment details отправленных
  * через AJAX
- * Created by Maksim Zagorodskiy on 7/9/2016.
+ * Created by user on 7/9/2016.
  */
 @RestController
 public class PaymentsDetailsController {

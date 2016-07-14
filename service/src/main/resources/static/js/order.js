@@ -13,7 +13,7 @@ $(document).ready(
     function(){
         $("#moveDate").change(showModel);
         $("#totalForFirstHours").change(changeTotalSumPerHours);
-        $("#aplay").click(refreshPaymentDetails);
+        $("#apply").click(refreshPaymentDetails);
         addressButtonListen();
         changePackingMaterials();
     }
@@ -145,5 +145,10 @@ var changePackingMaterials = function(){
 //Показывает модальное окно
 var showModel = function(id){
     setQuestFormAction(id);
-    $("#myModal").modal("show");
-}
+    $("#myModal").model("show");
+    $('.ui-state-default').click(function () {
+        console.log(777);
+    });
+};
+
+

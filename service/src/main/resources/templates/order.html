@@ -104,19 +104,7 @@
         <form class="form" action="/order" th:object="${orderForm}" th:action="@{/order}" method="post">
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                 <div class="row placeholders">
-                    <!--<div class="dropdown">-->
-                    <!--<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">-->
-                    <!--Advertisement-->
-                    <!--<span class="caret"></span>-->
-                    <!--</button>-->
-                    <!--<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">-->
-                    <!--<li><a href="#">Action</a></li>-->
-                    <!--<li><a href="#">Another action</a></li>-->
-                    <!--<li><a href="#">Something else here</a></li>-->
-                    <!--<li role="separator" class="divider"></li>-->
-                    <!--<li><a href="#">Separated link</a></li>-->
-                    <!--</ul>-->
-                    <!--</div>-->
+
                 </div>
                 <!-- CLIENT INFO-->
                 <h2 class="page-header  ">Client info &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -239,14 +227,7 @@
                                 </div>
                             </th>
                             <th>
-                            </th>
-                            <th>
-                            </th>
-                        </tr>
-                        </thead>
-                        <thead>
-                        <tr>
-                            <th>
+
                                 <div class="btn-group" role="group" aria-label="...">
                                     <input id="moveDate" style="width: 66.5%;" type="text" class="form-control"
                                            th:field="*{moveDate}"
@@ -257,6 +238,15 @@
                                            th:field="*{moveDateTime}"
                                            aria-describedby="basic-addon1" placeholder="Move time"/>
                                 </div>
+
+                            </th>
+                            <th>
+                            </th>
+                        </tr>
+                        </thead>
+                        <thead>
+                        <tr>
+                            <th>
 
 
                             </th>
@@ -273,6 +263,27 @@
                                 </div>
                             </th>
                             <th>
+                            </th>
+                        </tr>
+                        </thead>
+                        <thead>
+                        <tr>
+                            <th>
+                                <div class="dropup" role="group" aria-label="...">
+                                    <!--<button type="button" class="btn btn-default">Advertisement</button>-->
+                                    <select class="form-control" id="advertisement" th:field="*{advertisement}">
+                                        <option th:each="ad : ${ads}"
+                                                th:value="${ad}"
+                                                th:text="#{${ad}}">Wireframe
+                                        </option>
+                                    </select>
+                                </div>
+                                <!--<button type="" class="btn btn-default">Submit</button>-->
+                                <!--<button class="btn btn-primary" type="submit">-->
+                                <!--Save-->
+                                <!--</button>-->
+                            </th>
+                            <th>
                                 <div class="btn-group" role="group" aria-label="...">
                                     <input id="estimateDate" style="width: 66.5%;" type="text" class="form-control"
                                            th:field="*{estimateDate}"
@@ -283,27 +294,6 @@
                                            th:field="*{estimateDateTime}"
                                            aria-describedby="basic-addon1" placeholder="Estimate time"/>
                                 </div>
-                            </th>
-                        </tr>
-                        </thead>
-                        <thead>
-                        <tr>
-                            <th>
-                                <div class="dropup" role="group" aria-label="...">
-                                    <!--<button type="button" class="btn btn-default">Advertisement</button>-->
-                                    <select class="form-control" id="advertisement" th:field="*{advertisement}">
-                                        <option th:each="ads : ${actualListAds}"
-                                                th:value="${ads}"
-                                                th:text="#{${ads}}">Wireframe
-                                        </option>
-                                    </select>
-                                </div>
-                                <!--<button type="" class="btn btn-default">Submit</button>-->
-                                <!--<button class="btn btn-primary" type="submit">-->
-                                <!--Save-->
-                                <!--</button>-->
-                            </th>
-                            <th>
                             </th>
                             <th>
                             </th>
