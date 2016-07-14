@@ -110,7 +110,7 @@
                 <h2 class="page-header  ">Client info &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     Moving Info
                 </h2>
-                <div class="table-responsive">
+                <div id="example2" class="table-responsive">
                     <table style="width: 84%;" class="table table-bordered">
                         <thead>
                         <tr>
@@ -165,15 +165,17 @@
                                 </div>
                             </th>
                             <th>
+
                                 <div id="zipFromDiv" class="input-group">
                                     <span class="input-group-addon" id="basic-addon13456">Zip from</span>
-                                    <input style="width: 39.5%;" type="text" class="form-control" placeholder="Zip from"
+                                    <input style="width: 39.5%;" type="text" name="zipcode1" class="form-control" placeholder="Zip from"
                                            aria-describedby="basic-addon1"/>
                                     <input type="hidden" id="loadingAddresses" th:field="*{loadingAddress}"/>
                                     <button class="btn btn-default col-md-offset-2" type="button" id="addLoadAddress">
                                         add
                                     </button>
                                 </div>
+
                             </th>
                         </tr>
                         </thead>
@@ -198,15 +200,17 @@
                                 </div>
                             </th>
                             <th>
+
                                 <div id="zipToDiv" class="input-group">
                                     <span style="width: 27%;" class="input-group-addon"
                                           id="basic-addon16432">Zip to</span>
-                                    <input style="width: 39%;" type="text" class="form-control" placeholder="Zip to"
+                                    <input style="width: 39%;" type="text" name="zipcode2" class="form-control" placeholder="Zip to"
                                            aria-describedby="basic-addon1"/>
                                     <button type="button" id="addUnLoadAddress"
                                             class="btn btn-default  col-md-offset-2">add
                                     </button>
                                 </div>
+
                             </th>
                         </tr>
                         </thead>
@@ -241,6 +245,10 @@
 
                             </th>
                             <th>
+                                <div class="text-error"></div>
+                                <div class="row-fluid distance" style="">
+                                    <span class="label">Distance:</span> <span class="distance"></span>
+                                </div>
                             </th>
                         </tr>
                         </thead>
@@ -769,15 +777,27 @@
                         <h4 class="modal-title"></h4>
                     </div>
                     <div class="modal-body">
-                        <p>Some text in the modal.</p>
+                        <p>Choose vehicle and book for time</p>
+                    </div>
+                    <div class="input-group" style="width: 84%;">
+                        <div class="dropdown" >
+                            <select class="form-control" id="vehicle">
+                                <option th:each="vehicle : ${availableVehicles}"
+                                        th:value="${vehicle.id}"
+                                        th:text="${vehicle.transportDetails}">Wireframe
+                                </option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            AM&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="vehicle" value="Bike"/>
+                        </div>
+                        <div class="input-group">
+                            PM&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="vehicle" value="Bike"/>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Apply</button>
-                        <td>
-                            <a id="guestPlay" class="btn btn-default" href="/ord?game="
-                               th:attr="href=@{/register}"><span>play</span></a>
-                        </td>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Book vehicle</button>
                     </div>
                 </div>
             </div>
