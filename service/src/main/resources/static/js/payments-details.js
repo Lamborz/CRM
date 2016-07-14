@@ -28,3 +28,5 @@ var refreshPaymentDetails = function(){
       success: fillPaymentsFormAfterHandle
     });
 }
+
+

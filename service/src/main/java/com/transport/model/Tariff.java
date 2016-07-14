@@ -14,7 +14,7 @@ public class Tariff {
     @Id
     @GeneratedValue
     private Integer id;
-    //standard or all inclusive
+    //standard or all inclusive, start and finish month, etc...
     private Integer tariffType;
     private String name;
     @Column(name="two_movers")
@@ -29,10 +29,9 @@ public class Tariff {
     private Integer cashPay;
     @Column(name="not_cash_pay")
     private Double notCashPay;
-    //Monday-Thursday
     @Column(name="day_category_one")
     private Integer dayCategoryOne;
-    //Friday-Saturday
+
     @Column(name="day_category_two")
     private Integer dayCategoryTwo;
     //Sunday

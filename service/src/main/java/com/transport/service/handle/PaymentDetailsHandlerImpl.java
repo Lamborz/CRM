@@ -16,7 +16,7 @@ import java.math.BigDecimal;
 /**
  * Класс для обработки первичных полученных данных payment details
  * из order.html
- * Created by Maksim Zagorodskiy on 7/11/2016.
+ * Created by user on 7/11/2016.
  */
 @Service
 public class PaymentDetailsHandlerImpl implements PaymentDetailsHandler {

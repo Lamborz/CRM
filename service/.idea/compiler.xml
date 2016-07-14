@@ -14,12 +14,20 @@
       <entry name="!?*.aj" />
     </wildcardResourcePatterns>
     <annotationProcessing>
-      <profile default="true" name="Default" enabled="false">
+      <profile default="true" name="Default" enabled="true">
         <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="test" enabled="false">
+        <processorPath useClasspath="true" />
+        <module name="service_test" />
       </profile>
       <profile default="false" name="test" enabled="false">
         <processorPath useClasspath="true" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="service_main" target="1.8" />
+      <module name="service_test" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
