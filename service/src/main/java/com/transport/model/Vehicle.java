@@ -1,6 +1,7 @@
 package com.transport.model;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -11,13 +12,13 @@ import java.util.Set;
 @Entity
 @Data
 @Table(name="vehicle_entity")
+@EqualsAndHashCode()
 public class Vehicle {
     @Id
     @GeneratedValue
     private Integer id;
     private String type;
     private String vehicleRegNumber;
-    @OneToMany(targetEntity = BookedTime.class, fetch=FetchType.EAGER)
-    @JoinColumn(name="bookingTime", referencedColumnName="id")
-    Set<BookedTime> bookingTime;
+    @OneToMany(mappedBy = "vehicle", fetch=FetchType.LAZY )
+    Set<BookedTime> bookedTime;
 }

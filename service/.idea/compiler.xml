@@ -21,6 +21,9 @@
         <processorPath useClasspath="true" />
         <module name="service_test" />
       </profile>
+      <profile default="false" name="test" enabled="false">
+        <processorPath useClasspath="true" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="service_main" target="1.8" />
