@@ -2,13 +2,19 @@ package com.transport.repository;
 
 import com.transport.model.Vehicle;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import java.util.Set;
 
 /**
  * Created by Maksim Zagorodskiy on 7/13/2016.
  */
 public interface VehicleRepository extends JpaRepository<Vehicle, Integer> {
 
-/*   @Query("select v from vehicle_entity v join v.bookingTime b where b.startPeriod > :startPeriod and b.endPeriod < endPeriod")
-    List<Vehicle> findAllByPeriod(@Param("startPeriod") int startPeriod, @Param("endPeriod") int endPeriod);*/
-
+   @Query(nativeQuery = false, value = "select v from Vehicle v join fetch v.bookedTime b \n" +
+           "Where b.vehicle = v.id " +
+           "AND (b.startPeriod < :startPeriod OR b.startPeriod > :finishPeriod) " +
+           "AND (b.finishPeriod < :startPeriod OR b.finishPeriod > :finishPeriod)")
+   Set<Vehicle> findAllByPeriod(@Param("startPeriod") Long startPeriod, @Param("finishPeriod") Long finishPeriod);
 }
