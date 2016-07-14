@@ -12,7 +12,7 @@ import java.util.Set;
  */
 public interface VehicleRepository extends JpaRepository<Vehicle, Integer> {
 
-   @Query(nativeQuery = false, value = "select v from Vehicle v right join fetch v.bookedTime b \n" +
+   @Query(nativeQuery = false, value = "select v from Vehicle v join fetch v.bookedTime b \n" +
            "Where b.vehicle = v.id " +
            "AND (b.startPeriod < :startPeriod OR b.startPeriod > :finishPeriod) " +
            "AND (b.finishPeriod < :startPeriod OR b.finishPeriod > :finishPeriod)")
