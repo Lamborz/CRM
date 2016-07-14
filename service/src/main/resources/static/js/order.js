@@ -144,6 +144,5 @@ var changePackingMaterials = function(){
 
 //Показывает модальное окно
 var showModel = function(id){
-    setQuestFormAction(id);
     $("#myModal").modal("show");
 }

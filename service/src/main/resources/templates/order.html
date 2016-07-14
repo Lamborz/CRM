@@ -779,15 +779,27 @@
                         <h4 class="modal-title"></h4>
                     </div>
                     <div class="modal-body">
-                        <p>Some text in the modal.</p>
+                        <p>Choose vehicle and book for time</p>
+                    </div>
+                    <div class="input-group" style="width: 84%;">
+                        <div class="dropdown" >
+                            <select class="form-control" id="vehicle">
+                                <option th:each="vehicle : ${availableVehicles}"
+                                        th:value="${vehicle.id}"
+                                        th:text="${vehicle.transportDetails}">Wireframe
+                                </option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            AM&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="vehicle" value="Bike"/>
+                        </div>
+                        <div class="input-group">
+                            PM&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="vehicle" value="Bike"/>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Apply</button>
-                        <td>
-                            <a id="guestPlay" class="btn btn-default" href="/ord?game="
-                               th:attr="href=@{/register}"><span>play</span></a>
-                        </td>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Book vehicle</button>
                     </div>
                 </div>
             </div>
