@@ -122,142 +122,81 @@
         </nav>
 
 
-        <form class="form" action="/salesman" th:object="${orderForm}" th:action="@{/salesman}" method="post">
-            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <form class="form" action="/manager" th:object="${orderForm}" th:action="@{/manager}" method="post">
+            <div class="col-sm-9  col-md-10 col-md-offset-1 main">
 
                 <!-- CLIENT INFO-->
-                <h2 class="page-header "> Manager board </h2>
-                <div class="table-responsive">
-                    <table class="table table-bordered">
+                <!--<h2 class="page-header "> Manager board </h2>-->
+                <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Manager board</div>
+
+                    <!-- Table -->
+                    <table class="table">
                         <thead>
                         <tr>
-                            <th>
-                                <div class="input-group">
-                                 <span class="input-group-addon">
-                                 <span class="icon icon-calendar"></span>
-                                 </span>
-                                    <input type="text" value="01/01/2015" class="form-control" data-provide="datepicker"
-                                           style="width: 200px;"/>
+                            <th>Order#</th>
+                            <th>Time</th>
+                            <th>Client info</th>
+                            <th>Address</th>
+                            <th>Value</th>
+                            <th>Asing</th>
+                            <th>Manager info</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">
+                                1
+                            </th>
+                            <td>
+                                AM:10:00
+                            </td>
+                            <td>
+                                Name:Otto motto
+                                Phone:32323232323
+                                Email:asdfg@mail.com
+                            </td>
+                            <td>
+                                From: ololo street 90002
+                                To: fokok avenue 90003
+                                Distance: 35 miles
+                            </td>
+                            <td>
+                                truck:1
+                                movers:3
+                                rate per 1 hour: $155
+                            </td>
+                            <td>
+                                <div>
+                                    Truck:<select class="form-control"  id = "truck"> Licence number</select>
+                                    <p>Formen:<select class="form-control" id = "Formen"> name</select> <button type="button" class="btn btn-sm btn-pill btn-primary">sms</button></p>
+                                    <p>Driver:<select class="form-control" id = "driver">name </select>name<button type="button" class="btn btn-sm btn-pill btn-primary">sms</button></p>
+                                    <p>Helper:<select class="form-control" id = "helper">name </select>name<button type="button" class="btn btn-sm btn-pill btn-primary">sms</button></p>
                                 </div>
-
-                            </th>
-                            <th>
-
-
-                            </th>
-                            <th>
-
-
-                            </th>
-
-                        </tr>
-                        </thead>
-
-                        <thead>
-                        <tr>
-                            <th>
-
-
-                            </th>
-                            <th>
-
-
-                            </th>
-                            <th>
-
-
-                            </th>
-                        </tr>
-
-                        </thead>
-                        <thead>
-                        <tr>
-                            <th>
-
-
-                            </th>
-                            <th>
-
-
-                            </th>
-                            <th>
-
-
-                            </th>
-
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <label for="comment">Comment for manager:</label>
+                                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                                </div>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-sm btn-pill btn-primary">Print</button>
+                            </td>
 
                         </tr>
-                        </thead>
-                        <thead>
-                        <tr>
-                            <th>
+                        <!--<tr>-->
+                        <!--<th scope="row">2</th>-->
+                        <!--<td>Jacob</td>-->
+                        <!--<td>Thornton</td>-->
+                        <!--<td>@fat</td>-->
+                        <!--</tr>-->
 
-
-                            </th>
-                            <th>
-
-
-                            </th>
-                            <th>
-
-
-                            </th>
-
-
-                        </tr>
-                        </thead>
-                        <thead>
-                        <tr>
-                            <th>
-
-                            </th>
-                            <th>
-
-
-                            </th>
-                            <th>
-
-
-                            </th>
-
-
-                        </tr>
-                        </thead>
-                        <thead>
-                        <tr>
-                            <th>
-
-                            </th>
-                            <th>
-
-
-                            </th>
-                            <th>
-
-
-                            </th>
-                        </tr>
-
-                        </thead>
-
-                    </table>
-
-                    <table class="table" style="width: 84%; border-bottom: 0px solid #ddd;">
-                        <thead>
-
-                        <tr>
-                            <th>
-                            </th>
-                            <th>
-                            </th>
-
-                            <th>
-
-                            </th>
-                        </tr>
-                        </thead>
+                        </tbody>
                     </table>
                 </div>
+
             </div>
         </form>
     </div>

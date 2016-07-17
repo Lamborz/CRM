@@ -19,18 +19,22 @@ public class OrderForm implements Serializable {
     private String phoneNumber;
     private String advertisement;
     private String sizeOfMove;
+    private String storageSize;
     @DateTimeFormat(pattern="MM/dd/yyyy")
     private Date moveDate;
     @DateTimeFormat(pattern="MM/dd/yyyy")
     private Date packingDate;
     @DateTimeFormat(pattern="MM/dd/yyyy")
     private Date estimateDate;
+    @DateTimeFormat(pattern="MM/dd/yyyy")
+    private Date storageDate;
     @DateTimeFormat(pattern="HH:mm")
     private Date moveDateTime;
     @DateTimeFormat(pattern="HH:mm")
     private Date packingDateTime;
     @DateTimeFormat(pattern="HH:mm")
     private Date estimateDateTime;
+
     private boolean isLabor;
     private Integer zipFrom;
     private Integer zipTo;

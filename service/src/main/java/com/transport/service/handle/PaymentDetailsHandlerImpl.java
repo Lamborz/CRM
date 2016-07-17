@@ -25,12 +25,13 @@ public class PaymentDetailsHandlerImpl implements PaymentDetailsHandler {
 
     @Override
     public PaymentDetailsDTO handlePaymentDetailsForm(PaymentDetailsForm paymentDetailsForm) {
+
         DateTime date = new DateTime(paymentDetailsForm.getMoveDate());
 
         int category = CategoryUtil.getCategoryByDateAndCompanyNameAndType(date,
                 paymentDetailsForm.getCompany(), TariffType.valueOf(paymentDetailsForm.getTariff()).getType());
 
-        Tariff tariff = tariffRepository.findByNameAndTariffType(paymentDetailsForm.getCompany(), category);
+        Tariff tariff = tariffRepository.findByCompanyAndTariffType(paymentDetailsForm.getCompany(), category);
 
         BigDecimal moversRate = getMoverRateByQuantity(paymentDetailsForm, tariff);
         BigDecimal additionalTruckRate = BigDecimal.valueOf(tariff.getAdditionalTruckPrice());

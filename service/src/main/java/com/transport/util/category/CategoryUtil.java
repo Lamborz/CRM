@@ -21,11 +21,12 @@ public class CategoryUtil {
      * @return
      */
     public static int getRoyalMovingPriceCategoryByDay(DateTime date) {
+
         int category;
 
         if (!checkDateByPeriod(date, 5, 25)) {
             category = 4;
-        }else {
+        } else {
             category = getCategoryBySimpleDay(date);
         }
 
@@ -33,38 +34,39 @@ public class CategoryUtil {
     }
 
     private static int getCategoryBySimpleDay(DateTime date) {
-        int category;
+        int dayOfWeek;
         switch (date.getDayOfWeek()) {
             case 1:
-                category = 1;
+                dayOfWeek = 1;
                 break;
             case 2:
-                category = 1;
+                dayOfWeek = 1;
                 break;
             case 3:
-                category = 1;
+                dayOfWeek = 1;
                 break;
             case 4:
-                category = 1;
+                dayOfWeek = 1;
                 break;
             case 5:
-                category = 2;
+                dayOfWeek = 2;
                 break;
             case 6:
-                category = 2;
+                dayOfWeek = 2;
                 break;
             case 7:
-                category = 3;
+                dayOfWeek = 3;
                 break;
             default:
-                category = 3;
+                dayOfWeek = 3;
         }
-        return category;
+        return dayOfWeek;
     }
 
 
     /**
-     * Метод проверяет попадает ли переданная дата в заданный диапазон
+     * Метод проверяет попадает ли переданнiy den в  диапазон prices between 5 and 25 day.
+     * if the day between 5 and 25 values is true if not values is false
      *
      * @param date   дата, которуб необходимо проверить
      * @param start  начальная дата периода
@@ -74,19 +76,19 @@ public class CategoryUtil {
     private static boolean checkDateByPeriod(DateTime date, int start, int finish) {
         int dayOfMonth = date.getDayOfMonth();
 
-        return dayOfMonth >= start && dayOfMonth <= finish;
+        return dayOfMonth > start && dayOfMonth < finish ;
     }
 
     /**
      * Метод выбирает необходимую категорию в зависимости от даты
      * и названия компании
      * @param date
-     * @param name
+     * @param companyName
      * @return
      */
-    public static int getCategoryByDateAndCompanyNameAndType(DateTime date, String name, int type){
+    public static int getCategoryByDateAndCompanyNameAndType(DateTime date, String companyName, int type){
         int category;
-        Company company = Company.valueOf(name);
+        Company company = Company.valueOf(companyName);
         switch (company){
             case  ROYAL_MOVING : category = getRoyalMovingPriceCategoryByDay(date) ;
                 break;

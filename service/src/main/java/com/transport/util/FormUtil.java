@@ -30,6 +30,8 @@ public class FormUtil {
         List<Rate> actualListRateOrFlat = Arrays.asList(Rate.values()).subList(0, Rate.values().length-1);
         List<Status> actualListStatus = Arrays.asList(Status.values()).subList(0,Status.values().length-1);
         List<TariffType> tariffs = Arrays.asList(TariffType.values()).subList(0, TariffType.values().length-1);
+        List<StorageSize> actualListStorageSize = Arrays.asList(StorageSize.values()).subList(0,StorageSize.values().length-1);
+
 
         VehicleDTO veh1 = new VehicleDTO();
         veh1.setId(1);
@@ -61,5 +63,6 @@ public class FormUtil {
         model.addObject("actualListTotalForFirstHours", Arrays.asList(1, 2, 3, 4));
         model.addObject("tariffs", tariffs);
         model.addObject("availableVehicles", availableVehicles);
+        model.addObject("storageSize", actualListStorageSize);
     }
 }
