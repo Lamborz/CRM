@@ -1,8 +1,10 @@
 package com.transport.controller;
 
 
+import com.transport.email.SmtpMailSender;
 import com.transport.form.OrderForm;
 import com.transport.form.PaymentDetailsForm;
+import com.transport.model.Order;
 import com.transport.service.OrderService;
 import com.transport.util.FormUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,8 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class OrderController extends BaseController {
+     @Autowired
+    private SmtpMailSender smtpMailSender;
     @Autowired
     private OrderService orderService;
 
@@ -25,15 +29,22 @@ public class OrderController extends BaseController {
         model.addObject("orderForm", new OrderForm());
         model.addObject("paymentsDetailsForm", new PaymentDetailsForm());
         FormUtil.setEnumsToOrderModel(model);
-        model.setViewName("order");
+        model.setViewName("/order");
         return model;
     }
 
     @RequestMapping(value = "/order", method = RequestMethod.POST)
-    public ModelAndView register1(@ModelAttribute OrderForm orderForm) {
-        orderService.addOrder(orderForm);
+    public ModelAndView register1(@ModelAttribute OrderForm orderForm){
+        Order order = orderService.addOrder(orderForm);
+        try {
+            smtpMailSender.sent(order.getClient().getMail(), "test mail  from spring", "AK");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         ModelAndView model = new ModelAndView();
         model.addObject("paymentsDetailsForm", new PaymentDetailsForm());
+
         model.setViewName("/order");
         return model;
     }

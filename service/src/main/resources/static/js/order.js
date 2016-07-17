@@ -12,6 +12,7 @@ var unloadingZip;
 $(document).ready(
     function(){
         $("#moveDate").change(showModel);
+        $("#storageDate").change(showModel);
         $("#totalForFirstHours").change(changeTotalSumPerHours);
         $("#apply").click(refreshPaymentDetails);
         addressButtonListen();

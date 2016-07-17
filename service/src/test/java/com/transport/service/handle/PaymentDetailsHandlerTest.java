@@ -62,8 +62,10 @@ public class PaymentDetailsHandlerTest {
 
     @Autowired
     private PaymentDetailsHandler paymentDetailsHandler;
+
     @Autowired
     private TariffRepository tariffRepository;
+
     @Autowired
     private VehicleRepository vehicleRepository;
 
@@ -128,8 +130,8 @@ public class PaymentDetailsHandlerTest {
         Tariff preparedTariffStandard = fillStandardTariff(companyName, standardTariff);
         Tariff preparedTariffAllInclusive = fillAllInclusiveTariff(companyName, allInclusiveTariff);
 
-        Tariff standard = tariffRepository.findByNameAndTariffType(companyName, allInclusiveTariff);
-        Tariff allInclusive = tariffRepository.findByNameAndTariffType(companyName, allInclusiveTariff);
+        Tariff standard = tariffRepository.findByCompanyAndTariffType(companyName, allInclusiveTariff);
+        Tariff allInclusive = tariffRepository.findByCompanyAndTariffType(companyName, allInclusiveTariff);
 
         if(standard == null) {
             tariffRepository.save(preparedTariffStandard);
@@ -147,7 +149,7 @@ public class PaymentDetailsHandlerTest {
      */
     private Tariff fillStandardTariff(String companyName, int standardTariff) {
         Tariff preparedTariffStandard = new Tariff();
-        preparedTariffStandard.setName(companyName);
+        preparedTariffStandard.setCompany(companyName);
         preparedTariffStandard.setTariffType(standardTariff);
         preparedTariffStandard.setTwoMoversPrice(75);
         preparedTariffStandard.setThreeMoversPrice(105);
@@ -174,7 +176,7 @@ public class PaymentDetailsHandlerTest {
      */
     private Tariff fillAllInclusiveTariff(String companyName, int allInclusiveTariff) {
         Tariff preparedTariffAllInclusive = new Tariff();
-        preparedTariffAllInclusive.setName(companyName);
+        preparedTariffAllInclusive.setCompany(companyName);
         preparedTariffAllInclusive.setTariffType(allInclusiveTariff);
         preparedTariffAllInclusive.setTwoMoversPrice(90);
         preparedTariffAllInclusive.setThreeMoversPrice(115);

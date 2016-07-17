@@ -17,7 +17,9 @@ $("#companyZipFrom").val($("#zipFrom").val())
 var copyZipTo = function(){
 $("#companyZipTo").val($("#zipTo").val())
 };
-
+var copyStorageDate = function(){
+    $("#companyStorageDate").val($("#storageDate").val())
+};
 
 var copyAllFields = function(){
 copyCompany();
@@ -26,6 +28,7 @@ copyMoveDate();
 copyPackingDate();
 copyZipFrom();
 copyZipTo();
+copyStorageDate()
 
 }
 
@@ -35,6 +38,7 @@ copyAllFields();
     $("#company").change(copyCompany);
     $("#sizeOfMove").change(copySizeOfMove);
     $("#moveDate").change(copyMoveDate);
+    $("#storageDate").change(copyStorageDate);
     $("#packingDate").change(copyPackingDate);
     $("#zipFrom").change(copyZipFrom);
     $("#zipTo").change(copyZipTo);

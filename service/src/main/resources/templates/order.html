@@ -311,14 +311,17 @@
                     <table class="table" style="width: 84%; border-bottom: 0px solid #ddd;">
                         <thead>
                         <tr>
-                            <th style="width: 184%;">
-                            </th>
-                            <th>
-                            </th>
-                            <th>
-                                <button class="btn btn-success" type="submit">
-                                    Submit
+                            <th >
+                                <button class="btn btn-success " id="apply">
+                                    Apply
                                 </button>
+                            </th>
+                            <th>
+                            </th>
+                            <th>
+                                <!--<button class="btn btn-success" type="submit">-->
+                                    <!--Submit-->
+                                <!--</button>-->
                             </th>
                         </tr>
                         </thead>
@@ -331,9 +334,7 @@
         <!--<h3 class="sub-header">Payment details</h3>-->
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h2 class="page-header ">Payment details</h2>
-            <button class="btn btn-success " id="apply">
-                Apply
-            </button>
+
         </div>
         <form class="form" id="paymentsDetailsForm" action="/order" th:object="${paymentsDetailsForm}"
               th:action="@{/order}" method="post">
@@ -344,6 +345,7 @@
                         <input type="hidden" id = "companyHidden" th:field="*{company}"> </input>
                         <input type="hidden" id = "companySizeOfMove" th:field="*{sizeOfMove}"> </input>
                         <input type="hidden" id = "companyMoveDate" th:field="*{moveDate}"> </input>
+                        <input type="hidden" id = "companyStorageDate" th:field="*{storageDate}"> </input>
                         <input type="hidden" id = "companyPackingDate" th:field="*{packingDate}"> </input>
                         <input type="hidden" id = "companyZipFrom" th:field="*{zipFrom}"> </input>
                         <input type="hidden" id = "companyZipTo" th:field="*{zipTo}"> </input>
@@ -591,26 +593,31 @@
                                 <div class="input-group">
                                     <span class="input-group-addon">Size of storage unit</span>
                                     <div class="dropdown">
-                                        <button class="btn btn-default dropdown-toggle" type="button"
-                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                            Size
-                                            <span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                            <li><a href="#">1 </a></li>
-                                            <li><a href="#">2 </a></li>
-                                            <li><a href="#">3 </a></li>
-                                        </ul>
+                                        <select class="form-control" id="storageSize" th:field="*{storageSize}">
+                                            <option th:each="size : ${storageSize}"
+                                                    th:value="${size}"
+                                                    th:text="#{${size}}">Wireframe
+                                            </option>
+                                        </select>
                                     </div>
                                 </div>
                             </th>
-                            <th>
-                                <div class="input-group">
-                                    <div class="btn-group" role="group" aria-label="...">
-                                        <button style="width: 120%;" type="button" class="btn btn-default">Date
-                                        </button>
-                                    </div>
+                            <th style="width: 20%;">
+                                <div class="btn-group" role="group" aria-label="...">
+                                    <input id="storageDate"  type="text" class="form-control"
+                                           th:field="*{storageDate}"
+                                           aria-describedby="basic-addon1" placeholder="Storage date"/>
                                 </div>
+
+
+
+
+
+
+
+
+
+
                             </th>
                             <th>
                                 <input type="text" class="form-control" placeholder="0.00"
@@ -662,6 +669,7 @@
                                        aria-describedby="basic-addon1"/>
                             </th>
                         </tr>
+
                         <tr>
                             <th>
                             </th>

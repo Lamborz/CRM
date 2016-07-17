@@ -1,11 +1,9 @@
 package com.transport.model;
 
-import com.transport.model.*;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -27,6 +25,7 @@ public class Order implements Serializable {
 
     private String advertisement;
     private String sizeOfMove; //enums
+    private String storageSize;
     private boolean isLabor;
 
     private Integer status; //enums
@@ -54,7 +53,7 @@ public class Order implements Serializable {
      @Column(name="end_pick_date") // salaryConut
      private Long endPickUpDate; // salaryConut
 
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="person_id")
     private Client client;
 
@@ -82,6 +81,9 @@ public class Order implements Serializable {
 
     @Column(name="move_date")
     private Long moveDate;
+
+    @Column(name="storage_date")
+    private Long storageDate;
 
     @Column(name="is_stored")
     private boolean isStored;

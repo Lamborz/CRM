@@ -10,7 +10,8 @@
               "otherPay":"30",
               "shrinkWrap":"39,99",
               "tape":"4,99",
-              "serviceCharge":"30"},
+              "serviceCharge":"30"
+        },
 
         "allInclusive" : {
               "oneMover":"90",
@@ -19,7 +20,8 @@
               "otherPay":"30",
               "shrinkWrap":"39,99",
               "tape":"4,99",
-              "serviceCharge":"30"}
+              "serviceCharge":"30"
+        }
     }
   ]
 }

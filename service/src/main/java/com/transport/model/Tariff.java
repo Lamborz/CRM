@@ -16,7 +16,7 @@ public class Tariff {
     private Integer id;
     //standard or all inclusive, start and finish month, etc...
     private Integer tariffType;
-    private String name;
+    private String company;
     @Column(name="two_movers")
     private Integer twoMoversPrice;
     @Column(name="three_movers")

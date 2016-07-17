@@ -3,7 +3,7 @@ package com.transport.dto;
 import lombok.Data;
 
 /**
- * Класс для передачи данных после обработки первичной информации Payment Details From из order.html
+ * Класс для передачи данных после обработки первичной информации PaymentDetailsForm из order.html
  * Created by Maksim Zagorodskiy on 7/12/2016.
  */
 @Data

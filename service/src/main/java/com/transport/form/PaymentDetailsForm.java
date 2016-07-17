@@ -18,6 +18,8 @@ public class PaymentDetailsForm {
     private Date moveDate;
     @DateTimeFormat(pattern="MM/dd/yyyy")
     private Date packingDate;
+    @DateTimeFormat(pattern="MM/dd/yyyy")
+    private Date storageDate;
     private String paymentMethod;
     private Integer truck;
     private Integer movers;
@@ -39,6 +41,7 @@ public class PaymentDetailsForm {
     private Double discount;
     private String company;
     private String sizeOfMove;
+    private String storageSize;
     private Integer zipFrom;
     private Integer zipTo;
     private String tariff;
