@@ -1,11 +1,13 @@
 package com.transport.email;
 
+import com.transport.model.Order;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
 
+import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
 /**
@@ -14,11 +16,24 @@ import javax.mail.internet.MimeMessage;
 @Component
 public class SmtpMailSenderImpl implements SmtpMailSender {
 
-    private JavaMailSender mailSender;
+    @Autowired
+    private JavaMailSenderImpl mailSender;
+
     private SimpleMailMessage templateMessage;
     @Override
-    public void sent(String to, String subject, String body)  {
-        mailSender = new JavaMailSenderImpl();
+    public void sent(Order order) throws MessagingException {;
+        MimeMessage mimeMessage = mailSender.createMimeMessage();
+
+        MimeMessageHelper mailMsg = new MimeMessageHelper(mimeMessage);
+        mailMsg.setFrom("geniusessay@gmail.com");
+        mailMsg.setTo("geniusessay@gmail.com");
+        mailMsg.setSubject("Test mail");
+        mailMsg.setText("Hello World!");
+        mailSender.send(mimeMessage);
+        System.out.println("---Done---");
+
+
+/*        mailSender = new JavaMailSenderImpl();
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper;
         try {
@@ -29,7 +44,7 @@ public class SmtpMailSenderImpl implements SmtpMailSender {
             mailSender.send(message);
         } catch (javax.mail.MessagingException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
 }

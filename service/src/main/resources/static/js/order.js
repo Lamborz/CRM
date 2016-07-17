@@ -11,6 +11,9 @@ var unloadingZip;
 //Срабатывает, когда загрзился весь документ HTML
 $(document).ready(
     function(){
+        $("#submitAll").click(
+            submitAllForms);
+        //window.onbeforeunload = confirmExit;
         $("#moveDate").change(showModel);
         $("#storageDate").change(showModel);
         $("#totalForFirstHours").change(changeTotalSumPerHours);
@@ -151,6 +154,12 @@ var showModel = function(id){
     });
 };
 
+var confirmExit = function(){
+    alert("confirm exit is being called");
+    return false;
+}
+
+
 
     $(function() {
         // IMPORTANT: Fill in your client key
@@ -222,3 +231,20 @@ var showModel = function(id){
             }
         }).trigger("change");
     });
+
+var submitForm = function(){
+    $("#orderForm").submit;
+    $("#paymentsDetailsForm").submit;
+}
+
+var submitAllForms = function(){
+    var paymentForm = $("#paymentsDetailsForm").serialize();
+    var orderForm = $("#orderForm").serialize();
+        $.ajax({
+          method: "post",
+          url: "/order",
+          dataType: 'json',
+          data: { paymentsDetailsForm : JSON.stringify(paymentForm), orderForm : JSON.stringify(orderForm)},
+          success: alert(JSON.stringify(orderForm))
+        });
+}
