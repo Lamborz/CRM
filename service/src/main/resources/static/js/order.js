@@ -11,6 +11,7 @@ var unloadingZip;
 //Срабатывает, когда загрзился весь документ HTML
 $(document).ready(
     function(){
+        window.onbeforeunload = confirmExit;
         $("#moveDate").change(showModel);
         $("#totalForFirstHours").change(changeTotalSumPerHours);
         $("#apply").click(refreshPaymentDetails);
@@ -149,5 +150,11 @@ var showModel = function(id){
         console.log(777);
     });
 };
+
+var confirmExit = function(){
+    alert("confirm exit is being called");
+    return false;
+}
+
 
 
