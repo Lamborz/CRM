@@ -11,7 +11,9 @@ var unloadingZip;
 //Срабатывает, когда загрзился весь документ HTML
 $(document).ready(
     function(){
-        window.onbeforeunload = confirmExit;
+        $("#submitAll").click(
+            submitAllForms);
+        //window.onbeforeunload = confirmExit;
         $("#moveDate").change(showModel);
         $("#storageDate").change(showModel);
         $("#totalForFirstHours").change(changeTotalSumPerHours);
@@ -229,3 +231,20 @@ var confirmExit = function(){
             }
         }).trigger("change");
     });
+
+var submitForm = function(){
+    $("#orderForm").submit;
+    $("#paymentsDetailsForm").submit;
+}
+
+var submitAllForms = function(){
+    var paymentForm = $("#paymentsDetailsForm").serialize();
+    var orderForm = $("#orderForm").serialize();
+        $.ajax({
+          method: "post",
+          url: "/order",
+          dataType: 'json',
+          data: { paymentsDetailsForm : JSON.stringify(paymentForm), orderForm : JSON.stringify(orderForm)},
+          success: alert(JSON.stringify(orderForm))
+        });
+}

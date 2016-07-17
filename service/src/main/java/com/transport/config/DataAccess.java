@@ -6,11 +6,13 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
 import javax.persistence.EntityManagerFactory;
+import java.util.Properties;
 
 /**
  * Created by 1 on 6/6/2016.
@@ -53,5 +55,22 @@ public class DataAccess {
         entityManagerFactory.setPackagesToScan("com.transport.model");
         entityManagerFactory.afterPropertiesSet();
         return entityManagerFactory.getObject();
+    }
+
+    @Bean
+    public JavaMailSenderImpl javaMailSenderImpl(){
+        JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
+        mailSender.setHost("smtp.gmail.com");
+        mailSender.setPort(587);
+        //Set gmail email id
+        mailSender.setUsername("geniusessay@gmail.com");
+        //Set gmail email password
+        mailSender.setPassword("Rr3226156");
+        Properties prop = mailSender.getJavaMailProperties();
+        prop.put("mail.transport.protocol", "smtp");
+        prop.put("mail.smtp.auth", "true");
+        prop.put("mail.smtp.starttls.enable", "true");
+        prop.put("mail.debug", "true");
+        return mailSender;
     }
 }

@@ -101,7 +101,7 @@
                 </ul>
             </div>
         </nav>
-        <form class="form" action="/order" th:object="${orderForm}" th:action="@{/order}" method="post">
+        <form class="form" action="/order" th:object="${orderForm}" th:action="@{/order}" id = "orderForm" method="post">
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                 <div class="row placeholders">
 
@@ -755,11 +755,7 @@
                             </th>
                             <th>
                             </th>
-                            <th>
-                                <button class="btn btn-success " type="submit">
-                                    Submit
-                                </button>
-                            </th>
+
                             <th>
                             </th>
                         </tr>
@@ -773,6 +769,17 @@
 
             </div>
         </form>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <tr>
+                <th>
+                    <button id = "submitAll" class="btn btn-success "  >
+                        Submit
+                    </button>
+                </th>
+            </tr>
+            </div>
+
+
         <!-- END PAYMENT DETAILS-->
 
         <!-- Modal -->
