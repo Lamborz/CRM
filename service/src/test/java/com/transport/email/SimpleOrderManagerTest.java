@@ -4,6 +4,7 @@ import com.transport.ServiceApplication;
 import com.transport.model.Client;
 import com.transport.model.Order;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,24 +22,22 @@ import javax.mail.MessagingException;
 @WebAppConfiguration
 public class SimpleOrderManagerTest {
     @Autowired
-    private SmtpMailSender smtpMailSender;
+    private com.transport.email.SmtpMailSender smtpMailSender;
 
     Order order;
 
     @Before
     public void initOrder() {
         Client client = new Client();
-        client.setMail("mazagorodsky@gmail.com");
+        client.setMail("textmesweet@gmail.com");
         client.setFirstName("Mr Brooks");
         order = new Order();
         order.setOrderNumber(777);
         order.setClient(client);
     }
-
+    @Ignore
     @Test
     public void sendMail() throws MessagingException {
         smtpMailSender.sent(order);
     }
-
-
 }

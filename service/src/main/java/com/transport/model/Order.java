@@ -1,6 +1,7 @@
 package com.transport.model;
 
 import lombok.Data;
+import org.hibernate.validator.constraints.Email;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -21,6 +22,7 @@ public class Order implements Serializable {
     private String company; //enums
     private String fullName;
     private String phoneNumber;
+    @Email
     private String mail;
 
     private String advertisement;
@@ -54,7 +56,7 @@ public class Order implements Serializable {
      private Long endPickUpDate; // salaryConut
 
     @ManyToOne(fetch=FetchType.EAGER)
-    @JoinColumn(name="person_id")
+    @JoinColumn(name="client_id")
     private Client client;
 
     @OneToMany(targetEntity = com.transport.model.Address.class)

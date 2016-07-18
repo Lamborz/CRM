@@ -2,9 +2,12 @@ package com.transport.service;
 
 
 import com.transport.form.OrderForm;
+import com.transport.form.PaymentDetailsForm;
 import com.transport.model.Address;
+import com.transport.model.Client;
 import com.transport.model.Order;
 import com.transport.repository.AddressRepository;
+import com.transport.repository.ClientRepository;
 import com.transport.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,10 +27,12 @@ public class OrderServiceImpl implements OrderService {
     private OrderRepository orderRepository;
     @Autowired
     private AddressRepository addressRepository;
+    @Autowired
+    private ClientRepository clientRepository;
 
     @Override
     @Transactional
-    public Order addOrder(OrderForm orderForm) {
+    public Order addOrder(OrderForm orderForm, PaymentDetailsForm detailsForm) {
 
         Address addressFrom = new Address();
         addressFrom.setZip(orderForm.getZipFrom());
@@ -48,7 +53,20 @@ public class OrderServiceImpl implements OrderService {
         loadingAddress.add(addressFrom);
         unloadingAddress.add(addressTo);
 
+        Client client = clientRepository.findByMail(orderForm.getMail());
+        if(client == null){
+            Client newClient = new Client();
+            newClient.setFullName(orderForm.getFullName());
+            newClient.setMail(orderForm.getMail());
+            newClient.setPhone(orderForm.getPhoneNumber());
+            client = clientRepository.save(newClient);
+        }
+
+
         Order order = new Order();
+
+        order.setDiscount(detailsForm.getDiscount());
+        //complete sets
 
         order.setCompany(orderForm.getCompany());
         order.setFullName(orderForm.getFullName());
@@ -61,6 +79,7 @@ public class OrderServiceImpl implements OrderService {
         order.setLoadingAddress(unloadingAddress);
 
         order.setOrderDay(System.currentTimeMillis());
+        order.setClient(client);
       //order.setEstimateDate(orderForm.getEstimateDate());
         //order.setBoxDeliveredDate(orderForm.getBoxDeliveredDate());
        // order.setPackageDate(orderForm.getPackageDate());

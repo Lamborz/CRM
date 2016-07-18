@@ -2,6 +2,7 @@ package com.transport.controller;
 
 
 import com.transport.converter.OrderFormConverter;
+import com.transport.converter.PaymentsDetailsConverter;
 import com.transport.email.SmtpMailSender;
 import com.transport.form.OrderForm;
 import com.transport.form.PaymentDetailsForm;
@@ -14,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+
 /**
  * Created by 1 on 6/9/2016.
  */
@@ -25,6 +29,8 @@ public class OrderController extends BaseController {
     private OrderService orderService;
     @Autowired
     private OrderFormConverter orderFormConverter;
+    @Autowired
+    private PaymentsDetailsConverter paymentsDetailsConverter;
 
     @RequestMapping(value = "/order", method = RequestMethod.GET)
     public ModelAndView register(ModelAndView model) {
@@ -36,13 +42,14 @@ public class OrderController extends BaseController {
     }
 
     @RequestMapping(value = "/order", method = RequestMethod.POST)
-    public ModelAndView register1( String paymentsDetailsForm, String orderForm) {
+    public ModelAndView register1( String paymentsDetailsForm, String orderForm ) throws UnsupportedEncodingException {
 
-        System.out.println(paymentsDetailsForm);
+        String decodedOrderForm = URLDecoder.decode(orderForm, "UTF-8");
+        String decodedPaymentsForm = URLDecoder.decode(paymentsDetailsForm, "UTF-8");
 
-        Order order = orderService.addOrder(orderFormConverter.convertToObject(orderForm));
+        Order order = orderService.addOrder(orderFormConverter.convertToObject(decodedOrderForm),paymentsDetailsConverter.convertStringToObject(decodedPaymentsForm));
         try {
-           // smtpMailSender.sent(order.getClient().getMail(), "test mail  from spring", "AK");
+            smtpMailSender.sent(order);
         } catch (Exception e) {
             e.printStackTrace();
         }

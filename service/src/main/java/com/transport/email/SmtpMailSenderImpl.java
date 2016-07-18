@@ -25,9 +25,9 @@ public class SmtpMailSenderImpl implements SmtpMailSender {
         MimeMessage mimeMessage = mailSender.createMimeMessage();
 
         MimeMessageHelper mailMsg = new MimeMessageHelper(mimeMessage);
-        mailMsg.setFrom("geniusessay@gmail.com");
-        mailMsg.setTo("geniusessay@gmail.com");
-        mailMsg.setSubject("Test mail");
+//        mailMsg.setFrom("geniusessay@gmail.com");
+        mailMsg.setTo(order.getClient().getMail());
+        mailMsg.setSubject("Test mail2");
         mailMsg.setText("Hello World!");
         mailSender.send(mimeMessage);
         System.out.println("---Done---");

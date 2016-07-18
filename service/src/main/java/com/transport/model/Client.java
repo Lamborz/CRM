@@ -17,8 +17,8 @@ public class Client {
     @GeneratedValue
     private Integer id;
     private boolean enabled;
-    @Column(name="first_name")
-    private String firstName;
+    @Column(name="full_name")
+    private String fullName;
 
     @Email
     @Column(name="mail", unique = true)
