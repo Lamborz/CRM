@@ -30,7 +30,7 @@ public class SimpleOrderManagerTest {
     public void initOrder() {
         Client client = new Client();
         client.setMail("textmesweet@gmail.com");
-        client.setFirstName("Mr Brooks");
+        client.setFullName("Mr Brooks");
         order = new Order();
         order.setOrderNumber(777);
         order.setClient(client);

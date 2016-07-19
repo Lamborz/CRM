@@ -4,7 +4,10 @@ import com.transport.model.Address;
 import com.transport.model.Client;
 import com.transport.model.Employee;
 import com.transport.model.Order;
-import com.transport.repository.*;
+import com.transport.repository.AddressRepository;
+import com.transport.repository.ClientRepository;
+import com.transport.repository.EmployeeRepository;
+import com.transport.repository.OrderRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +45,7 @@ public class ServiceApplicationTests {
 
         Client client = new Client();
 
-        client.setFirstName("Aram");
+        client.setFullName("Aram");
         client.setMailMessage("Please help me to moves");
         client.setMail("ClientTest"+ Math.random()+"@gmail.com");
         client.setEnabled(true);

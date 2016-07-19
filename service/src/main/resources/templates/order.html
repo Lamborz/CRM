@@ -114,11 +114,11 @@
                     <table style="width: 84%;" class="table table-bordered">
                         <thead>
                         <tr>
-                            <th>
+                            <th >
                                 <div class="input-group">
                                     <span class="input-group-addon" id="basic-addon1232153">Company</span>
                                     <div class="dropdown">
-                                        <select class="form-control" id="company" th:field="*{company}">
+                                        <select tabindex="1" class="form-control" id="company" th:field="*{company}">
                                             <option th:each="company : ${actualListCompany}"
                                                     th:value="${company}"
                                                     th:text="#{${company}}">Wireframe
@@ -127,13 +127,13 @@
                                     </div>
                                 </div>
                             </th>
-                            <th>
+                            <th >
                                 <div class="input-group">
                                     <span class="input-group-addon" id="basic-addon17">Size of move</span>
                                     <div class="dropdown">
-                                        <select style="width: 55%;" class="form-control" id="sizeOfMove"
+                                        <select tabindex="6" style="width: 55%;"  class="form-control" id="sizeOfMove"
                                                 th:field="*{sizeOfMove}">
-                                            <option th:each="sizeOfMove : ${actualListSizeOfMove}"
+                                            <option tabindex="6" th:each="sizeOfMove : ${actualListSizeOfMove}"
                                                     th:value="${sizeOfMove}"
                                                     th:text="#{${sizeOfMove}}">Wireframe
                                             </option>
@@ -143,32 +143,32 @@
                             </th>
                             <th>
                                 <div class="input-group">
-                                    Labor&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="vehicle" value="Bike"/>
+                                    Labor&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="vehicle" value="Van"/>
                                 </div>
                             </th>
                         </tr>
                         </thead>
                         <thead>
                         <tr>
-                            <th style="width: 25%;">
+                            <th style="width: 25%;" >
                                 <div class="input-group">
                                     <span class="input-group-addon" id="basic-addon11236">Name</span>
-                                    <input type="text" class="form-control" th:field="*{fullName}" placeholder="Name"
+                                    <input tabindex="2" type="text" class="form-control" th:field="*{fullName}" placeholder="Name"
                                            aria-describedby="basic-addon1"/>
                                 </div>
                             </th>
-                            <th>
+                            <th >
                                 <div id="loadAddressDiv" class="input-group">
                                     <span class="input-group-addon" id="basic-addon1512">Address from</span>
-                                    <input type="text" class="form-control" placeholder="Address from"
+                                    <input tabindex="7" type="text" class="form-control" placeholder="Address from"
                                            aria-describedby="basic-addon1"/>
                                 </div>
                             </th>
-                            <th>
+                            <th >
 
                                 <div id="zipFromDiv" class="input-group">
                                     <span class="input-group-addon" id="basic-addon13456">Zip from</span>
-                                    <input style="width: 39.5%;" type="text" name="zipcode1" class="form-control" placeholder="Zip from"
+                                    <input tabindex="9" style="width: 39.5%;" type="text" name="zipcode1" class="form-control" placeholder="Zip from"
                                            aria-describedby="basic-addon1"/>
                                     <input type="hidden" id="loadingAddresses" th:field="*{loadingAddress}"/>
                                     <button class="btn btn-default col-md-offset-2" type="button" id="addLoadAddress">
@@ -181,30 +181,30 @@
                         </thead>
                         <thead>
                         <tr>
-                            <th>
+                            <th  >
                                 <div class="input-group">
                                     <span class="input-group-addon"
                                           id="basic-addon1723">E-mail</span>
-                                    <input type="text" class="form-control" th:field="*{mail}" placeholder="E-mail"
+                                    <input tabindex="3" type="text" class="form-control" th:field="*{mail}" placeholder="E-mail"
                                            aria-describedby="basic-addon1"/>
                                 </div>
                             </th>
-                            <th>
+                            <th >
                                 <div id="unloadAddressDiv" class="input-group">
                                     <span class="input-group-addon "
                                           id="basic-addon1435">Address to</span>
-                                    <input style="width: 100%" type="text" class="form-control"
+                                    <input tabindex="8" style="width: 100%" type="text" class="form-control"
                                            placeholder="Address to"
                                            aria-describedby="basic-addon1"/>
-                                    <input type="hidden" id="unloadingAddresses" th:field="*{unLoadingAddress}"/>
+                                    <input  type="hidden" id="unloadingAddresses" th:field="*{unLoadingAddress}"/>
                                 </div>
                             </th>
-                            <th>
+                            <th >
 
                                 <div id="zipToDiv" class="input-group">
                                     <span style="width: 27%;" class="input-group-addon"
                                           id="basic-addon16432">Zip to</span>
-                                    <input style="width: 39%;" type="text" name="zipcode2" class="form-control" placeholder="Zip to"
+                                    <input tabindex="10" style="width: 39%;" type="text" name="zipcode2" class="form-control" placeholder="Zip to"
                                            aria-describedby="basic-addon1"/>
                                     <button type="button" id="addUnLoadAddress"
                                             class="btn btn-default  col-md-offset-2">add
@@ -216,12 +216,12 @@
                         </thead>
                         <thead>
                         <tr>
-                            <th>
+                            <th >
                                 <div class="input-group">
-                                    <span class="input-group-addon" id="basic-addon17432">
+                                    <span  class="input-group-addon" id="basic-addon17432">
                                     Phone
                                     </span>
-                                    <input
+                                    <input  tabindex="4"
                                             type="text"
                                             class="form-control"
                                             th:field="*{phoneNumber}"
@@ -230,15 +230,15 @@
                                     />
                                 </div>
                             </th>
-                            <th>
+                            <th >
 
                                 <div class="btn-group" role="group" aria-label="...">
-                                    <input id="moveDate" style="width: 66.5%;" type="text" class="form-control"
+                                    <input tabindex="11" id="moveDate" style="width: 66.5%;" type="text" class="form-control"
                                            th:field="*{moveDate}"
                                            aria-describedby="basic-addon1" placeholder="Move date"/>
                                 </div>
                                 <div class="btn-group" role="group" aria-label="...">
-                                    <input id="moveDateTime" style="width: 66.5%;" type="text" class="form-control"
+                                    <input tabindex="12" id="moveDateTime" style="width: 66.5%;" type="text" class="form-control"
                                            th:field="*{moveDateTime}"
                                            aria-describedby="basic-addon1" placeholder="Move time"/>
                                 </div>
@@ -279,7 +279,7 @@
                             <th>
                                 <div class="dropup" role="group" aria-label="...">
                                     <!--<button type="button" class="btn btn-default">Advertisement</button>-->
-                                    <select class="form-control" id="advertisement" th:field="*{advertisement}">
+                                    <select tabindex="5" class="form-control" id="advertisement" th:field="*{advertisement}">
                                         <option th:each="ad : ${ads}"
                                                 th:value="${ad}"
                                                 th:text="#{${ad}}">Wireframe
@@ -350,6 +350,23 @@
                         <input type="hidden" id = "companyZipFrom" th:field="*{zipFrom}"> </input>
                         <input type="hidden" id = "companyZipTo" th:field="*{zipTo}"> </input>
                         <!--COUNTER FIELD "Payment method"-->
+
+                        <tr>
+                            <th>
+                                <div class="input-group">
+                                    <span class="input-group-addon">Tariff</span>
+                                    <div class="dropdown">
+                                        <select id="tariff" class="form-control"
+                                                th:field="*{tariff}">
+                                            <option th:each="tariff : ${tariffs}"
+                                                    th:value="${tariff}"
+                                                    th:text="#{${tariff}}">Wireframe
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </th>
+                        </tr>
                         <tr>
                             <th>
                                 <div class="input-group">
@@ -440,22 +457,7 @@
                                        aria-describedby="basic-addon1"/>
                             </th>
                         </tr>
-                        <tr>
-                            <th>
-                            <div class="input-group">
-                                <span class="input-group-addon">Tariff</span>
-                                <div class="dropdown">
-                                    <select id="tariff" class="form-control"
-                                            th:field="*{tariff}">
-                                        <option th:each="tariff : ${tariffs}"
-                                                th:value="${tariff}"
-                                                th:text="#{${tariff}}">Wireframe
-                                        </option>
-                                    </select>
-                                </div>
-                            </div>
-                            </th>
-                        </tr>
+
                         </thead>
                         <thead>
                         <tr class="active">
