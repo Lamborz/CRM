@@ -4,7 +4,6 @@ import lombok.Data;
 import org.hibernate.validator.constraints.Email;
 
 import javax.persistence.*;
-import java.util.Set;
 
 /**
  * Created by 1 on 6/9/2016.
@@ -24,9 +23,6 @@ public class Client {
     @Column(name="mail", unique = true)
     private String mail;
     private String phone;
-    @OneToMany(targetEntity = com.transport.model.Address.class)
-    @JoinColumn(name="client_address", referencedColumnName="id")
-    private Set<Address> address;
     private String mailMessage;
     private Double rate;
     private Double workTime;

@@ -38,7 +38,7 @@ public class OrderFormConverterImpl implements OrderFormConverter {
     @Override
     public OrderForm convertToObject(String orderFormString){
         OrderForm orderForm = new OrderForm();
-        String[] values= orderFormString.split("&");
+        String[] values = orderFormString.split("&");
         Map<String, String> params = new HashMap<>();
         parseStringToValues(values, params);
 
@@ -46,14 +46,21 @@ public class OrderFormConverterImpl implements OrderFormConverter {
         orderForm.setCompany(params.get(COMPANY));
         orderForm.setLoadingAddress(params.get(LOADING_ADDRESS));
         orderForm.setLoadingAddress(params.get(UNLOADING_ADDRESS));
-        //TODO Карим, тут нужно засетить все остальные поля...
+        orderForm.setFullName(params.get(FULL_NAME));
+        orderForm.setPhoneNumber(params.get(PHONE_NUMBER));
+        orderForm.setAdvertisement(params.get(ADVERTISEMENT));
+        orderForm.setSizeOfMove(params.get(SIZE_OF_MOVE));
+        orderForm.setStorageSize(params.get(STORAGE_SIZE));
+
+
+        //TODO  тут нужно засетить все остальные поля...
 
         return orderForm;
     }
 
     private void parseStringToValues(String[] values, Map<String, String> params) {
         String value;
-        for(String pair: values){
+        for(String pair : values){
             String[] entry = pair.split("=");
             if(entry.length == 1) {
                 value = "";

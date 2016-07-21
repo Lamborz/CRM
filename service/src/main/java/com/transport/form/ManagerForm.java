@@ -1,8 +1,10 @@
 package com.transport.form;
 
+import com.transport.dto.ManagerDTO;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by AK on 7/18/2016.
@@ -23,4 +25,5 @@ public class ManagerForm implements Serializable {
     private Long   orderDay;
     private String heavyItem; //enums
     private String  fieldForManagerComments;
+    private List<ManagerDTO> managerDTOs;
 }

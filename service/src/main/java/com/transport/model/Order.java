@@ -18,6 +18,7 @@ public class Order implements Serializable {
     @GeneratedValue
     private Integer id ;
     @Column(name="order_number")
+    @GeneratedValue
     private Integer orderNumber;
     private String company; //enums
     private String fullName;
@@ -59,11 +60,11 @@ public class Order implements Serializable {
     @JoinColumn(name="client_id")
     private Client client;
 
-    @OneToMany(targetEntity = com.transport.model.Address.class)
+    @OneToMany(targetEntity = com.transport.model.Address.class, fetch =FetchType.EAGER)
     @JoinColumn(name="unloading_address", referencedColumnName="id")
     private Set<Address> unloadingAddress;
 
-    @OneToMany(targetEntity = com.transport.model.Address.class)
+    @OneToMany(targetEntity = com.transport.model.Address.class, fetch = FetchType.EAGER)
     @JoinColumn(name="loading_address", referencedColumnName="id")
     private Set<Address> loadingAddress;
 

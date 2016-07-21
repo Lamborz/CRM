@@ -72,7 +72,7 @@
                     <li>
                         <a data-original-title="Signed in as mdo" href="#" title="" data-toggle="tooltip"
                            data-placement="right" data-container="body">
-                            <img src="/images/avatars.png" alt="" class="cs cn"/>
+                            <!--<img src="/images/avatars.png" alt="" class="cs cn"/>-->
                         </a>
                     </li>
                     <li>
@@ -147,10 +147,11 @@
                         <tbody>
                         <tr>
                             <th scope="row">
-                                <p th:text = "*{orderNumber}"> </p>
+                                <p th:text = "${managerDTOs[0].orderNumber}"> </p>
                             </th>
                             <td>
-                                7/19/2016 AM:10:00
+                                <p th:text = "${#dates.format(#calendars.createForTimeZone(#calendars.year(managerDTOs[0].orderDay), #calendars.month(managerDTOs[0].orderDay), #calendars.day(managerDTOs[0].orderDay), #calendars.hour(managerDTOs[0].orderDay), #calendars.minute(managerDTOs[0].orderDay),'UK'), 'yyyy-MMM-dd HH:mm')}"> </p>
+
                             </td>
                             <td>
                                 Name:Ottewo moewtto
@@ -358,7 +359,7 @@
         integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
         crossorigin="anonymous"></script>
 <script type="text/javascript" src="js\jfcore.js"></script>
-<script type="text/javascript" src="js\order.js"></script>
+<!--<script type="text/javascript" src="js\order.js"></script>-->
 
 </body>
 </html>
