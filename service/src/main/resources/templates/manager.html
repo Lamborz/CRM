@@ -61,8 +61,6 @@
 <div class="container-fluid">
 
     <div class="row">
-
-
         <nav class="ch">
             <a class="aov" href="../index.html">
                 <span class="bv act aow"></span>
@@ -122,7 +120,8 @@
         </nav>
 
 
-        <form class="form" action="/manager" th:object="${managerForm}" th:action="@{/manager}" id = "managerForm" method="post">
+        <form class="form" action="/manager" th:object="${managerForm}" th:action="@{/manager}" id="managerForm"
+              method="post">
             <div class="col-sm-9  col-md-10 col-md-offset-1 main">
 
                 <!-- CLIENT INFO-->
@@ -147,10 +146,10 @@
                         <tbody>
                         <tr>
                             <th scope="row">
-                                <p th:text = "${managerDTOs[0].orderNumber}"> </p>
+                                <p th:text="${managerDTOs[0].orderNumber}"></p>
                             </th>
                             <td>
-                                <p th:text = "${#dates.format(#calendars.createForTimeZone(#calendars.year(managerDTOs[0].orderDay), #calendars.month(managerDTOs[0].orderDay), #calendars.day(managerDTOs[0].orderDay), #calendars.hour(managerDTOs[0].orderDay), #calendars.minute(managerDTOs[0].orderDay),'UK'), 'yyyy-MMM-dd HH:mm')}"> </p>
+                                <p th:text="${#dates.format(#calendars.createForTimeZone(#calendars.year(managerDTOs[0].orderDay), #calendars.month(managerDTOs[0].orderDay), #calendars.day(managerDTOs[0].orderDay), #calendars.hour(managerDTOs[0].orderDay), #calendars.minute(managerDTOs[0].orderDay),'UK'), 'yyyy-MMM-dd HH:mm')}"></p>
 
                             </td>
                             <td>
@@ -163,7 +162,7 @@
                                 To: fokrrrok avenue 90003
                                 Distance: 35 miles
                             </td>
-                            <td >
+                            <td>
                                 truck:1
                                 movers:2
                                 rate per 1 hour: $125
@@ -173,7 +172,8 @@
                                     <div class="input-group">
                                         <span class="input-group-addon">Truck</span>
                                         <div class="dropdown">
-                                            <select style="width: 50%;" class="form-control" id="truck" th:field="*{truck}">
+                                            <select style="width: 50%;" class="form-control" id="truck"
+                                                    th:field="*{truck}">
                                                 <option th:each="truck : ${actualListTruck}"
                                                         th:value="${truck}"
                                                         th:text="#{${truck}}">Wireframe
@@ -181,19 +181,20 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <p> <div class="input-group">
-                                    <span class="input-group-addon" id="basic-addon15994223">Forman</span>
-                                    <div class="dropdown">
-                                        <select style="width: 50%;" class="form-control" id="movers"
-                                                th:field="*{movers}">
-                                            <option th:each="movers : ${actualListMovers}"
-                                                    th:value="${movers}"
-                                                    th:text="#{${movers}}">Wireframe
-                                            </option>
-                                        </select>
-                                        <button type="button" class="btn btn-sm btn-pill btn-primary">sms</button>
+                                    <p>
+                                    <div class="input-group">
+                                        <span class="input-group-addon" id="basic-addon15994223">Forman</span>
+                                        <div class="dropdown">
+                                            <select style="width: 50%;" class="form-control" id="movers"
+                                                    th:field="*{movers}">
+                                                <option th:each="movers : ${actualListMovers}"
+                                                        th:value="${movers}"
+                                                        th:text="#{${movers}}">Wireframe
+                                                </option>
+                                            </select>
+                                            <button type="button" class="btn btn-sm btn-pill btn-primary">sms</button>
+                                        </div>
                                     </div>
-                                </div>
 
                                     </p>
 
@@ -208,7 +209,7 @@
                                                         th:text="#{${movers}}">Wireframe
                                                 </option>
                                             </select>
-                                    <button type="button" class="btn btn-sm btn-pill btn-primary">sms</button>
+                                            <button type="button" class="btn btn-sm btn-pill btn-primary">sms</button>
                                         </div>
                                     </div>
                                     </p>
@@ -237,6 +238,7 @@
                             </td>
                             <td>
                                 <button type="button" class="btn btn-sm btn-pill btn-primary">Print</button>
+                                <button type="button" class="btn btn-sm btn-pill btn-primary">Submit</button>
                             </td>
 
                         </tr>
@@ -257,7 +259,7 @@
                                 To: fokrrrok avenue 90003
                                 Distance: 35 miles
                             </td>
-                            <td >
+                            <td>
                                 truck:1
                                 movers:2
                                 rate per 1 hour: $125
@@ -267,7 +269,8 @@
                                     <div class="input-group">
                                         <span class="input-group-addon">Truck</span>
                                         <div class="dropdown">
-                                            <select style="width: 50%;" class="form-control" id="truck" th:field="*{truck}">
+                                            <select style="width: 50%;" class="form-control" id="truck"
+                                                    th:field="*{truck}">
                                                 <option th:each="truck : ${actualListTruck}"
                                                         th:value="${truck}"
                                                         th:text="#{${truck}}">Wireframe
@@ -275,19 +278,20 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <p> <div class="input-group">
-                                    <span class="input-group-addon" id="basic-addon15994223">Forman</span>
-                                    <div class="dropdown">
-                                        <select style="width: 50%;" class="form-control" id="movers"
-                                                th:field="*{movers}">
-                                            <option th:each="movers : ${actualListMovers}"
-                                                    th:value="${movers}"
-                                                    th:text="#{${movers}}">Wireframe
-                                            </option>
-                                        </select>
-                                        <button type="button" class="btn btn-sm btn-pill btn-primary">sms</button>
+                                    <p>
+                                    <div class="input-group">
+                                        <span class="input-group-addon" id="basic-addon15994223">Forman</span>
+                                        <div class="dropdown">
+                                            <select style="width: 50%;" class="form-control" id="movers"
+                                                    th:field="*{movers}">
+                                                <option th:each="movers : ${actualListMovers}"
+                                                        th:value="${movers}"
+                                                        th:text="#{${movers}}">Wireframe
+                                                </option>
+                                            </select>
+                                            <button type="button" class="btn btn-sm btn-pill btn-primary">sms</button>
+                                        </div>
                                     </div>
-                                </div>
 
                                     </p>
 
@@ -331,6 +335,7 @@
                             </td>
                             <td>
                                 <button type="button" class="btn btn-sm btn-pill btn-primary">Print</button>
+                                <button type="button" class="btn btn-sm btn-pill btn-primary">Submit</button>
                             </td>
 
                         </tr>
